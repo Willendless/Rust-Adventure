@@ -129,6 +129,115 @@ func main() {
 
 ## 函数
 
-## 注释
++ 函数命名惯例：snake case，所有字母小写，单词间用'_'分隔
++ 函数定义由`fn`开始
++ 函数参数必须指明类型
+
+### 语句和表达式
+
+rust是expression-based语言，这意味着语句和表达式有严格的区分。
+
++ statements执行一些操作但不会返回值。
+    + `let y = 6;`
+    + 函数定义也是语句
+    + 语句不会返回值，因此不能将let语句赋值给另一个变量，例如`let x = (let y = 5);`
++ expressions求得结果值，并能够作为语句的一部分。
+    + `let y = 6;`中6是一个表达式
+    + 调用函数和宏均是表达式
+
+```rust
+let y = {
+    let x = 3;
+    x + 1
+}
+```
+
+由`{}`构成的构建新scope的代码块也是表达式，上面例子中该代码块求值得到4。表达式没有结尾的`;`。若在该示例结尾加上`;`则该表达式将被转换位语句。
+
+> 代码块表达式求值结果等于该代码块中最后一个表达式的结果值。
+
+### 带返回值的函数
+
++ rust函数的返回值类型由`fn func() -> i32 {}`给出
++ rust中函数的返回值等价于函数体最后一个表达式的结果。
+
+```rust
+fn plus_one(x: i32) -> i32 {
+    x + 1
+}
+```
 
 ## 控制流
+
+### if表达式
+
++ 表达式条件的类型必须是bool类型。并且rust不会将非bool类型自动转换为bool类型。
+
+```rust
+if ok {
+
+} else if {
+
+} else {
+
+}
+```
+
+#### 在语句中使用if表达式
+
++ 由于if是表达式，因此能够用于赋值语句
++ 注意，此时if表达式的不同arm的结果需要是同一类型，这样编译器在编译期就能知道变量类型。而非在runtime。
+
+```rust
+let number = if condition { 5 } else { 6 };
+```
+
+### 循环
+
+rust有三种循环：loop，while和for。
+
+#### loop循环
+
+除非明确终止循环(通过ctrl+c或者`break`)，`loop`关键字无条件重复执行代码块。
+
+loop的一种用例是重复一个可能会失败的操作例如验证线程是否结束。当需要获取该操作的返回值时，可以在break表达式后添加该值以将该值传递到loop循环外部，
+
+```rust
+fn main() {
+    let mut cnt = 0;
+    let result = loop {
+        cnt += 1;
+        if cnt == 10 {
+            break cnt * 2;
+        }
+    };
+}
+```
+
+#### while循环
+
+```rust
+while condition {
+
+}
+```
+
+#### for循环
+
+for循环用于遍历集合元素。
+
+```rust
+fn main() {
+    let a = [10, 20, 30, 40, 50];
+
+    for element in a.iter() {
+        // do something
+    }
+
+    for number in (1..4).rev() {
+        // do something
+    }
+}
+```
+
++ Range类型由标准库提供，用于生成一个整数序列。
