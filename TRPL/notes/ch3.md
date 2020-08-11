@@ -120,7 +120,10 @@ func main() {
     // 包含5个相同元素的数组的创建
     let a = [3; 5]
     let a = [5, 5, 5, 5, 5]
+    // 获取数组元素
     let first = a[0]
+    // 获取数组长度
+    let len = a.len()
 }
 ```
 + array通常用于需要在stack中分配数据的情况
