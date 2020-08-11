@@ -55,6 +55,7 @@ rust是statically typed language，这意味着编译期需要知道所有变量
 ##### 整型字面量
 
 |Number literals|Example|
+|---|---|
 |Decimal|98_222|
 |Hex|0xff|
 |Octal|0o77|
