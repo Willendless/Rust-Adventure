@@ -8,8 +8,8 @@
 - [x] [ch4: Understanding ownership](./notes/ch4.md)
 - [x] [ch5: Using Structs to Structure Related Data](./notes/ch5.md)
 - [x] [ch6: Enums and Pattern Matching](./notes/ch6.md)
-- [ ] [ch7: Managing Growing Projects with Packages, Crates, and Modules](./notes/ch7.md)
-- [ ] [ch8: Common Collections]
+- [x] [ch7: Managing Growing Projects with Packages, Crates, and Modules](./notes/ch7.md)
+- [x] [ch8: Common Collections](./notes/ch8.md)
 - [ ] [ch9: Error Handling]
 - [ ] [ch10: Generic Types, Traits, and Lifetimes]
 - [ ] [ch11: Writing Automated Tests](./notes/ch11.md)
@@ -20,6 +20,6 @@
 - [ ] [ch16: Fearless Concurrency]
 - [ ] [ch17: Object Oriented Programming Features of Rust]
 - [ ] [ch18: Patterns and Matching]
-- [ ] [ch19: Advanced Features]
+- [ ] [ch19: Advanced Features](./notes/ch19.md)
 - [ ] [ch20: Final Project: Building a Multithreaded Web Server]
 - [ ] [ch21: Appendix]
