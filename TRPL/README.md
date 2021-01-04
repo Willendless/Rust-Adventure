@@ -11,7 +11,7 @@
 - [x] [ch7: Managing Growing Projects with Packages, Crates, and Modules](./notes/ch7.md)
 - [x] [ch8: Common Collections](./notes/ch8.md)
 - [x] [ch9: Error Handling](./notes/ch9.md)
-- [ ] [ch10: Generic Types, Traits, and Lifetimes]
+- [x] [ch10: Generic Types, Traits, and Lifetimes](./notes/ch10.md)
 - [ ] [ch11: Writing Automated Tests](./notes/ch11.md)
 - [ ] [ch12: An I/O Project: Building a Command Line Program]
 - [ ] [ch13: Functional Language Features: Iterators and Closures]
