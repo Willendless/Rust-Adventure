@@ -16,7 +16,7 @@
 - [ ] [ch12: An I/O Project: Building a Command Line Program]
 - [ ] [ch13: Functional Language Features: Iterators and Closures](./notes/ch13.md)
 - [ ] [ch14: More about Cargo and Crates.io]
-- [ ] [ch15: Smart Pointers](./notes/ch15.md)
+- [x] [ch15: Smart Pointers](./notes/ch15.md)
 - [ ] [ch16: Fearless Concurrency]
 - [ ] [ch17: Object Oriented Programming Features of Rust]
 - [ ] [ch18: Patterns and Matching]
