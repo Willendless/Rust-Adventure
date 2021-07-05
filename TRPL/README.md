@@ -15,11 +15,11 @@
 - [x] [ch11: Writing Automated Tests](./notes/ch11.md)
 - [x] [ch12: An I/O Project: Building a Command Line Program](./notes/ch12.md)
 - [ ] [ch13: Functional Language Features: Iterators and Closures](./notes/ch13.md)
-- [ ] [ch14: More about Cargo and Crates.io]
+- [ ] [ch14: More about Cargo and Crates.io](./notes/ch14.md)
 - [x] [ch15: Smart Pointers](./notes/ch15.md)
-- [ ] [ch16: Fearless Concurrency]
-- [ ] [ch17: Object Oriented Programming Features of Rust]
-- [ ] [ch18: Patterns and Matching]
+- [ ] [ch16: Fearless Concurrency](./notes/ch16.md)
+- [ ] [ch17: Object Oriented Programming Features of Rust](./notes/ch17.md)
+- [ ] [ch18: Patterns and Matching](./notes/ch18.md)
 - [ ] [ch19: Advanced Features](./notes/ch19.md)
 - [ ] [ch20: Final Project: Building a Multithreaded Web Server]
 - [ ] [ch21: Appendix]
