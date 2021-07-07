@@ -1,11 +1,11 @@
 # ch3 Common Programming Concepts
 
-## Variables and Mutability
+## 1. Variables and Mutability
 
 + 变量默认immutable，除非加上mut关键字
 + 对于较大的数据结构，使用mut较好。对于较小的数据结构，使用不可变变量，并在需要修改时创建新的实例较好。
 
-### 变量和常量的差异
+### 1.1. 变量和常量的差异
 
 *语法* `const MAX_POINTS: u32 = 100_000;`
 
@@ -18,16 +18,16 @@
 
 整个程序运行期间，常量在其声明的scope中均有效。
 
-### Shadowing
+### 1.2. Shadowing
 
 使用同样的名字声明变量，被成为shadowed by the second。
 
-#### shadowing和mut的差异
+#### 1.2.1. shadowing和mut的差异
 
 1. shadowing保证了变量immutable
 2. shadowing能够改变变量类型，而无需创造新的变量名
 
-## 数据类型
+## 2. 数据类型
 
 rust是statically typed language，这意味着编译期需要知道所有变量的类型。
 
@@ -35,11 +35,11 @@ rust是statically typed language，这意味着编译期需要知道所有变量
 
 `let guess : u32 = "42".parse().expect("Not a number!")`
 
-### 标量类型
+### 2.1. 标量类型
 
 标量表示单个值。rust标量有4种可能类型。
 
-#### Integer
+#### 2.1.1. Integer
 
 |Length|Signed|Unsigned|
 |---|---|---|
@@ -52,7 +52,7 @@ rust是statically typed language，这意味着编译期需要知道所有变量
 
 > `isize/usize`取决于架构，64位机表示64位，32位机表示32位。
 
-##### 整型字面量
+##### 2.1.1.1. 整型字面量
 
 |Number literals|Example|
 |---|---|
@@ -66,27 +66,28 @@ rust是statically typed language，这意味着编译期需要知道所有变量
 + isize/usize通常用于索引一些集合
 + 整数溢出：在debug模式下编译后，rust会加入整数溢出检查。runtime发生整型溢出时，程序会报panic。而release模式编译(使用`--release`参数)时，程序不会报panic。
 
-#### Floating-Point Types
+#### 2.1.2. Floating-Point Types
 
 rust支持两种浮点类型，f32和f64。默认情况下(浮点数字面量)，浮点类型是f64。
 
-#### The Boolean Type
+#### 2.1.3. The Boolean Type
 
 `bool`：`true`和`false`
 
-#### The Character Type
+#### 2.1.4. The Character Type
 
 `char`：rust的char类型用于表示字符，大小为4字节，用于表示unicode标量值。char类型字面量由单引号包围。
 
-### 复合类型
+### 2.2. 复合类型
 
 复合类型能够将多个值组合在一种类型中。rust有两种原始组合类型：tuples和arrays。
 
-#### The Tuple Type
+#### 2.2.1. The Tuple Type
 
-Tuple是将多个不同类型的值组合在一起的通用方式。Tuples有固定的长度，一旦被声明，tuple的大小就不能改变。
++ Tuple是将**多个不同类型**的值组合在一起的通用方式。
++ Tuples有**固定的长度**，一旦被声明，tuple的大小就不能改变。
 
-##### tuple使用示例
+##### 2.2.1.1. tuple使用示例
 
 ```rust
 func main() {
@@ -98,19 +99,19 @@ func main() {
 }
 ```
 
-##### tuple 操作
+##### 2.2.1.2. tuple 操作
 
 + *destructure*: tuple的解包
     + `let (x, y, z) = tup;`
 + element access: 使用`.`运算符加上索引的值
     + `let a = tup.0`
 
-#### The Array Type
+#### 2.2.2. The Array Type
 
-+ 和tuple不同，array的每一个元素需要是相同类型。
-+ 和其它编程语言不同，rust的数组长度是固定的。
++ 和tuple不同，array的每一个元素需要是**相同类型**。
++ 和其它编程语言不同，rust的**数组长度是固定的**。
 
-##### Array使用示例
+##### 2.2.2.1. Array使用示例
 
 声明类型时需要同时指明元素*类型*和数组*长度*。
 
@@ -130,13 +131,13 @@ func main() {
 + array通常用于需要表示固定数量的元素
 + array越界访问：程序产生运行时错误并错误退出
 
-## 函数
+## 3. 函数
 
 + 函数命名惯例：snake case，所有字母小写，单词间用'_'分隔
 + 函数定义由`fn`开始
 + 函数参数必须指明类型
 
-### 语句和表达式
+### 3.1. 语句和表达式
 
 rust是expression-based语言，这意味着语句和表达式有严格的区分。
 
@@ -159,7 +160,7 @@ let y = {
 
 > 代码块表达式求值结果等于该代码块中最后一个表达式的结果值。
 
-### 带返回值的函数
+### 3.2. 带返回值的函数
 
 + rust函数的返回值类型由`fn func() -> i32 {}`给出
 + rust中函数的返回值等价于函数体最后一个表达式的结果。
@@ -170,9 +171,9 @@ fn plus_one(x: i32) -> i32 {
 }
 ```
 
-## 控制流
+## 4. 控制流
 
-### if表达式
+### 4.1. if表达式
 
 + 表达式条件的类型必须是bool类型。并且rust不会将非bool类型自动转换为bool类型。
 
@@ -186,7 +187,7 @@ if ok {
 }
 ```
 
-#### 在语句中使用if表达式
+#### 4.1.1. 在语句中使用if表达式
 
 + 由于if是表达式，因此能够用于赋值语句
 + 注意，此时if表达式的不同arm的结果需要是同一类型，这样编译器在编译期就能知道变量类型。而非在runtime。
@@ -195,11 +196,11 @@ if ok {
 let number = if condition { 5 } else { 6 };
 ```
 
-### 循环
+### 4.2. 循环
 
 rust有三种循环：loop，while和for。
 
-#### loop循环
+#### 4.2.1. loop循环
 
 除非明确终止循环(通过ctrl+c或者`break`)，`loop`关键字无条件重复执行代码块。
 
@@ -217,7 +218,7 @@ fn main() {
 }
 ```
 
-#### while循环
+#### 4.2.2. while循环
 
 ```rust
 while condition {
@@ -225,7 +226,7 @@ while condition {
 }
 ```
 
-#### for循环
+#### 4.2.3. for循环
 
 for循环用于遍历集合元素。
 
