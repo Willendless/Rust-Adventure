@@ -20,7 +20,7 @@
 
 ### 1.2. Shadowing
 
-使用同样的名字声明变量，被成为shadowed by the second。
+使用同样的名字声明变量，被称为shadowed by the second。
 
 #### 1.2.1. shadowing和mut的差异
 
@@ -62,7 +62,7 @@ rust是statically typed language，这意味着编译期需要知道所有变量
 |Binary|0b1111_0000|
 |Byte(`u8`only)|b'A'|
 
-+ 整型的默认类型是i32
++ **整型的默认类型是i32**
 + isize/usize通常用于索引一些集合
 + 整数溢出：在debug模式下编译后，rust会加入整数溢出检查。runtime发生整型溢出时，程序会报panic。而release模式编译(使用`--release`参数)时，程序不会报panic。
 
