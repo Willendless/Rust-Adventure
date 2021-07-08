@@ -8,14 +8,14 @@ oop中，*struct*类似于对象的数据属性。这一章讨论
 
 rust中，struct和enums是在程序范围内构建新类型的基本组件，并能很好的利用rust的编译期类型验证。
 
-## 定义和实例化struct
+## 1. 定义和实例化struct
 
-### 和tuple的异同
+### 1.1. 和tuple的异同
 
 + 同：组合不同类型数据。
 + 异：struct可以命名每一个值，因此访问field的值时不依赖于field的顺序。
 
-### 实例化struct
+### 1.2. 实例化struct
 
 ```rust
 struct User {
@@ -42,14 +42,14 @@ let u2 = User {
 + *field init shorthand syntax*: 当初始化的域和初始化变量具有相同命名时，可以省略初始化变量
 + struct update syntax: 使用另一个同类型变量的域进行初始化
 
-### 其它类型的struct
+### 1.3. 其它类型的struct
 
 rust中struct一共有三种：
 
 1. c struct
-2. tuple structs
+2. **tuple structs**
 	+ tuple struct的各个域不具有名字但是具有类型。
-	+ tuple struct主要用于需要给予整个tuple一个名字并且让该tuple和其它tuple有所区分的情况。
+	+ tuple struct主要用于**需要给予整个tuple一个名字**并且让该tuple和其它tuple有所区分的情况。
 	+ 使用：
 		+ `struct Color(i32, i32, i32);`
 		+ `struct Point(i32, i32, i32);`
@@ -59,29 +59,29 @@ rust中struct一共有三种：
 3. unit-like structs
 	+ 不含有域的结构体，类似于`()`
 
-### 结构体数据的所有权
+### 1.4. 结构体数据的所有权
 
-若要在结构体中存储属于其它变量引用，则需要设计*lifetimes*的概念。*lifetimes*保证了结构体拥有的数据引用始终有效。
+若要在结构体中存储属于其它变量引用，则需要涉及*lifetimes*的概念。*lifetimes*保证了结构体拥有的数据引用始终有效。
 
-## struct格式化输出
+## 2. struct格式化输出
 
 + debug打印模式：需要在结构体头加上记号,`#[derive(Debug)]`
 	+ `{:?}`: 同一行
 	+ `{:#?}`: 多行
 
-## methods
+## 3. methods
 
 + 使用impl块，方法的第一个参数固定为`&self`，且不需要类型。
 	+ 方法同样可以
 		1. take ownership of self (`self`)
 		2. borrow self immutably (`&self`)
 		3. borrow self mutably (`&mut self`)
-+ rust具有自动解引用的能力，因此均可用点调用.
++ rust具有**自动解引用**的能力，因此均可用点调用.
 	+ `p1.distance(&p2)`和`(&p1).distance(&p2)`等价
 
-## associated method
+## 4. associated method
 
-+ 在impl块内部，也可以定义不以`self`为参数的函数，这被称为associated method。
++ **associated method:** 在impl块内部，不以`self`为参数的函数。
 	+ 例如：`String::from`
 	+ 通过类型名加上`::`调用
 + associated method可用于实现构造器。
