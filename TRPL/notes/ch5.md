@@ -58,6 +58,8 @@ rust中struct一共有三种：
 	+ 注：即使各个域的类型相同，不同tuple struct的类型不同，例如上述的`Color`和`Point`类型。
 3. unit-like structs
 	+ 不含有域的结构体，类似于`()`
+	+ **主要用于需要为某个不包含数据的类型实现trait的情况。**
+	+ 例如: `struct UnitStruct;`
 
 ### 1.4. 结构体数据的所有权
 
